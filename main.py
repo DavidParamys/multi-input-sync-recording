@@ -25,12 +25,11 @@ if __name__ == '__main__':
         # 生成檔案名稱
         now = datetime.now().strftime('%Y%m%d_%H%M%S')
         output_dir = f'{OUTPUT_DIR}/cam{i+1}'
-        filename = f'raw_{now}.mp4'
 
         # 輸出路徑
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
-        output_path = os.path.join(output_dir, filename)
+        output_path = os.path.join(output_dir)
 
         # 創建影像輸入物件
         if param['type'] == 'camera':
