@@ -7,6 +7,7 @@ if __name__ == '__main__':
     
     # 影像輸入參數
     """
+    使用範例
     input_params = [
         {'type': 'camera', 'id': 0},
         {'type': 'rtsp', 'url': 'rtsp://xxx.xxx.xxx.xxx:554/xxx'},
@@ -14,16 +15,23 @@ if __name__ == '__main__':
         #...
     ]
     """
+    """
+    # 測試用 - 檔案
     input_params = [
         {'type': 'file', 'path': 'data/2022-08-17_15raw.mp4'},
         {'type': 'file', 'path': 'data/PerspectiveTransform.mp4'},
         {'type': 'file', 'path': 'data/TestDrown.mp4'},
     ]
-    processes = []
+    """
+    # 實際執行 - RTSP
+    input_params = [
+        {'type': 'rtsp', 'url': 'rtsp://admin:Admin123!@192.168.0.99/stream1'},
+        {'type': 'rtsp', 'url': 'rtsp://admin:Admin123!@192.168.0.98/stream1'},
+        {'type': 'rtsp', 'url': 'rtsp://admin:Admin123!@192.168.0.97/stream1'},
+    ]
     
     for i, param in enumerate(input_params):
         # 生成檔案名稱
-        now = datetime.now().strftime('%Y%m%d_%H%M%S')
         output_dir = f'{OUTPUT_DIR}/cam{i+1}'
 
         # 輸出路徑

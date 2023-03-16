@@ -72,9 +72,16 @@ class VideoRecorder(threading.Thread):
         self.is_stop = False
     
     def create_file(self, frame):
-        now_str = datetime.now().strftime('%Y%m%d_%H%M%S')
-        file_name = f'raw_{now_str}.mp4'
-        file_path = os.path.join(self.output_path, file_name)
+        now = datetime.now()
+        date_str = now.strftime('%Y-%m-%d')
+        datetime_str = now.strftime('%Y%m%d_%H%M%S')
+        file_name = f'raw_{datetime_str}.mp4'
+        
+        # 輸出路徑
+        output_path = os.path.join(self.output_path, date_str)
+        if not os.path.exists(output_path):
+            os.makedirs(output_path)
+        file_path = os.path.join(output_path, file_name)
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
         if self.fps is None: 
             self.fps = self.video_input.cap.get(cv2.CAP_PROP_FPS)
