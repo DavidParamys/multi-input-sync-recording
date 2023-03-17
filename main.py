@@ -24,12 +24,14 @@ if __name__ == '__main__':
     ]
     """
     # 實際執行 - RTSP
+    
     input_params = [
         {'type': 'rtsp', 'url': 'rtsp://admin:Admin123!@192.168.0.99/stream1'},
         {'type': 'rtsp', 'url': 'rtsp://admin:Admin123!@192.168.0.98/stream1'},
         {'type': 'rtsp', 'url': 'rtsp://admin:Admin123!@192.168.0.97/stream1'},
     ]
     
+    processes = []
     for i, param in enumerate(input_params):
         # 生成檔案名稱
         output_dir = f'{OUTPUT_DIR}/cam{i+1}'
